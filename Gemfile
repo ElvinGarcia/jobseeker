@@ -23,13 +23,13 @@ group :development do
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
   #IRB alternative
   gem 'pry'
+  #rack development server
+  gem 'shotgun'
+  #web server
+  gem 'thin'
 end
 
 group :test do
   #use for unit testing
   gem 'rspec'
-  #rack development server
-  gem 'shotgun'
-  #web server
-  gem 'thin'
 end

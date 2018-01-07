@@ -1,5 +1,9 @@
-# This file is used by Rack-based servers to start the application.
-
 require_relative 'config/environment'
 
-run Rails.application
+#auto-add controllers
+Dir.glob(File.dirname(__FILE__) + '/*.rb').each do |controller|
+ require(controller)
+end
+
+run ApplicationController
+use Rack::MethodOverride
