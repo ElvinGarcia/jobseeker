@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111170113) do
+ActiveRecord::Schema.define(version: 20180112201541) do
+
+  create_table "JobPostings", force: :cascade do |t|
+    t.string "title"
+    t.string "date"
+    t.string "type"
+    t.string "location"
+    t.string "requirements"
+    t.integer "salary"
+  end
 
   create_table "applicants", force: :cascade do |t|
     t.string "name"
@@ -18,6 +27,25 @@ ActiveRecord::Schema.define(version: 20180111170113) do
     t.string "objective"
     t.string "github"
     t.string "blog"
+  end
+
+  create_table "benefits", force: :cascade do |t|
+    t.string "insurance"
+    t.string "education"
+    t.string "travel"
+    t.string "vacation"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "job_postngs_id"
+    t.string "benefits_id"
+  end
+
+  create_table "jobs_benefits", force: :cascade do |t|
+    t.integer "job_postngs_id"
+    t.integer "benefits_id"
   end
 
 end
