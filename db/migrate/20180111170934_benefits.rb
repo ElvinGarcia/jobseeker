@@ -1,4 +1,4 @@
-class Benefits < ActiveRecord::Migration[5.1]
+class Benefits < ActiveRecord::Migration
   def change
     create_table :benefits do |t|
         t.string  :insurance

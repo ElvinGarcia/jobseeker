@@ -1,4 +1,4 @@
-class JobBenefits < ActiveRecord::Migration[5.1]
+class JobBenefits < ActiveRecord::Migration
   def change
     create_table :jobs_benefits do |t|
       t.integer :job_postngs_id
