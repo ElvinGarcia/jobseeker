@@ -1,5 +1,8 @@
 class Applicamt < ActiveRecord::Base
 
+  has_many :companies
+  has_many :job_postings, through: :job_benefit
+
   include Slugifiable::Slug
 
   def self.find_by_slug(slug)

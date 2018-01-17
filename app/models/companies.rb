@@ -1,4 +1,7 @@
 class Company < ActiveRecord::Base
+  has_many :job_benefits
+  has_many :job_postings, through: :job_benefit
+
 
   include Slugifiable::Slug
 

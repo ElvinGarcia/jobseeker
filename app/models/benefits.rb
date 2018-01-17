@@ -1,4 +1,5 @@
 class Benefit < ActiveRecord::Base
+  belongs_to :job_posting
 
   include Slugifiable::Slug
 
