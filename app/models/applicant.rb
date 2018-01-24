@@ -1,6 +1,6 @@
-class Applicamt < ActiveRecord::Base
+class Applicant < ActiveRecord::Base
   has_secure_password
-  
+
   has_many :companies
   has_many :job_postings, through: :job_benefit
 

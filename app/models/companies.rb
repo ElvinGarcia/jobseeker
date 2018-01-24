@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  has_many :applicants
   has_many :job_benefits
   has_many :job_postings, through: :job_benefit
 
