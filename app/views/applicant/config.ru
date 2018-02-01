@@ -1,4 +1,4 @@
-require_relative 'config/environment'
+require_relative './config/environment'
 
 #auto-add controllers
 Dir.glob(File.dirname(__FILE__) + '/*.rb').each do |controller|
