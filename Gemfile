@@ -17,6 +17,7 @@ source 'https://rubygems.org'
   gem 'bcrypt'
   #flash alert
   gem 'rack-flash3'
+  
 
 group :development do
   #interact with helpers, view rendering and your app's response objects, commands to view your app's routes and settings

@@ -1,5 +1,0 @@
-class JobpostingController < ApplicationController
-
-  
-
-end

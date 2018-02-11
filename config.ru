@@ -1,4 +1,4 @@
-require_relative 'config/environment'
+require_relative './config/environment'
 
 #auto-add controllers
 Dir.glob(File.dirname(__FILE__) + '/*.rb').each do |controller|
@@ -7,5 +7,6 @@ end
 
 run ApplicationController
 use Rack::MethodOverride
-use CompaniesController
+use CompanyController
 use ApplicantController
+use JobController

@@ -3,7 +3,7 @@ class ApplicantController < ApplicationController
   use Rack::Flash
 
   get '/applicant/login' do
-    if Helpers.logged_in?(session)
+    if Applicant_helpers.logged_in?(session)
       redirect to '/applicant/profile'
     end
     erb:"applicant/index"
@@ -14,12 +14,12 @@ class ApplicantController < ApplicationController
   end
 
   get '/applicant/profile' do
-      @user = Helpers.current_user(session)
+      @user = Applicant_helpers.current_user(session)
     erb :'/applicant/profile'
   end
 
   get '/applicant/logoff' do
-    if Helpers.logged_in?(session)
+    if Applicant_helpers.logged_in?(session)
       session.clear
       erb:'/applicant/logoff'
     else
@@ -28,24 +28,24 @@ class ApplicantController < ApplicationController
   end
 
   get '/applicant/delete' do
-    user = Helpers.current_user(session).destroy
+    user = Applicant_helpers.current_user(session).destroy
     session.clear
     redirect to "/applicant/login"
   end
 
   get '/applicant/edit' do
-    @user = Helpers.current_user(session)
+    @user = Applicant_helpers.current_user(session)
     erb:"/applicant/edit"
   end
 
   post '/applicant/new' do
       @user = Applicant.create(username: params[:username] , name: params[:name], address: params[:address], objective: params[:objective], blog: params[:blog], github: params[:github], password: params[:password] )
-      session[:user_id]=@user[:id]
+      session[:user_id]=@user.id
     redirect to "/applicant/profile"
   end
 
   post '/applicant/login' do
-    if  @user = Helpers.find_and_auth(params)
+    if  @user = Applicant_helpers.find_and_auth(params)
       session[:user_id]=@user.id
       erb:'/applicant/profile'
     else
@@ -55,7 +55,7 @@ class ApplicantController < ApplicationController
   end
 
   patch '/applicant/edit' do
-    user = Helpers.current_user(session)
+    user = Applicant_helpers.current_user(session)
 
     user.update(name:params[:name], address:params[:address], objective: params[:objective],github: params[:github],blog:params[:blog])
 

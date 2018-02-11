@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125222650) do
+ActiveRecord::Schema.define(version: 20180209022556) do
 
-  create_table "JobPostings", force: :cascade do |t|
-    t.string "title"
-    t.string "date"
-    t.string "type"
-    t.string "location"
-    t.string "requirements"
-    t.integer "salary"
+  create_table "Companies", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "job_postngs_id"
+    t.string "benefits_id"
+    t.string "password_digest"
+    t.string "username"
+    t.string "address"
+    t.integer "job_id"
+    t.integer "applicant_id"
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -31,23 +34,14 @@ ActiveRecord::Schema.define(version: 20180125222650) do
     t.string "username"
   end
 
-  create_table "benefits", force: :cascade do |t|
-    t.string "insurance"
-    t.string "education"
-    t.string "travel"
-    t.string "vacation"
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "job_postngs_id"
-    t.string "benefits_id"
-  end
-
-  create_table "jobs_benefits", force: :cascade do |t|
-    t.integer "job_postngs_id"
-    t.integer "benefits_id"
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "date"
+    t.string "job_type"
+    t.string "location"
+    t.string "requirements"
+    t.integer "salary"
+    t.integer "company_id"
   end
 
 end
