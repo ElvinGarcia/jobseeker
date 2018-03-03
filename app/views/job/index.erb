@@ -1,0 +1,16 @@
+<h1>Job Postings</h1>
+
+  <%@company.each do |obj|%>
+     <h2> <%= obj.name %> </h2>
+      <%obj.jobs.each do |subobj|%>
+        <ul style="list-style: none;">
+          <li> Title:</li>        <%= subobj.title        %>  </li>
+          <li> Date:</li>         <%= subobj.date         %>  </li>
+          <li> Job Typeli</li>     <%= subobj.job_type     %>  </li>
+          <li> Location:</li>     <%= subobj.location     %>  </li>
+          <li> Requirements:</li> <%= subobj.requirements %>  </li>
+          <li> Salary:</li>       <%= subobj.salary       %>  </li>
+          <li> <a href="/applicant/job/<%=subobj.id%>">Apply</a> </li>
+        </ul>
+        <%end%>
+      <%end%>

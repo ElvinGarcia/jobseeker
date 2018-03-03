@@ -10,18 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209022556) do
+ActiveRecord::Schema.define(version: 20180228164228) do
 
   create_table "Companies", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "job_postngs_id"
-    t.string "benefits_id"
     t.string "password_digest"
     t.string "username"
     t.string "address"
-    t.integer "job_id"
-    t.integer "applicant_id"
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -32,6 +29,12 @@ ActiveRecord::Schema.define(version: 20180209022556) do
     t.string "blog"
     t.string "password_digest"
     t.string "username"
+  end
+
+  create_table "applicants_jobs", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "company_id"
+    t.integer "applicant_id"
   end
 
   create_table "jobs", force: :cascade do |t|

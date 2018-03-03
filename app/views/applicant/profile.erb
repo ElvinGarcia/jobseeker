@@ -1,31 +1,30 @@
 
 
 
-<ul>
+<ul style="list-style: none;">
   <li>Username:</li>
     <li> <%= @user.username %> </li>
   <li>Name:</li>
     <li> <%= @user.name %> </li>
   <li>Address:</li>
     <li> <%= @user.address %> </li>
-  <li>Objective:</li>
+  <li>Objectives:</li>
     <li> <%= @user.objective %> </li>
   <li>Github:</li>
   <li> <a href="<%=@user.github%>" target="_new"><%=@user.github %></a> </li>
   <li>Blog:</li>
   <li> <a href="<%= @user.blog %>"><%= @user.blog %></a> </li>
   <li>Jobs Applied:</li>
-  <li> <a href="<%= @user.blog %>">job posting that were submitted </a> </li>
+  <%= binding.pry %>
+
+
 </ul>
 
-  <p>
-    <a href="/applicant/logoff">Logoff</a>
-  </p>
   <p>
     <a href="/applicant/edit">Edit</a>
   </p>
   <p>
-    <a href="/applicant/postings">Job Postings</a>
+    <a href="/job/index">Job Postings</a>
   </p>
   <p>
     <a href="/applicant/delete">Delete Account</a>

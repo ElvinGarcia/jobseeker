@@ -1,0 +1,38 @@
+
+<p>Create a New Job Profile</p>
+
+<form class="" action="/job/new" method="post">
+  <label for="title">Job Title:</label>
+  <input type="text" id="title" name=job[title] value="" placeholder="Title">
+  <br>
+  <br>
+  <label for="company_name">Company Name:</label>
+  <input type="text" id="company_name" name=company_name value="<%= @user.name%>" placeholder="<%= @user.name%>" readonly>
+  <br>
+  <br>
+  <label for="date">Date:</label>
+  <input id="date" type="date" name=job[date] value="" placeholder="MM/DD/YYYY">
+  <br>
+  <br>
+  <label for="job_type">Type of Job:</label>
+  <select class="" name=job[job_type]>
+    <option value="fulltime">Full Time</option>
+    <option value="part-time">Part-time</option>
+    <option value="per-diem">Per-diem</option>
+  </select>
+  <br>
+  <br>
+  <label for="location">Location:</label>
+  <input type="text" id="location" name=job[location] value="" placeholder="Location">
+  <br>
+  <br>
+  <label for="requirements">Requirements:</label>
+  <textarea id="requirements" name=job[requirements] value=""></textarea>
+  <br>
+  <br>
+  <label for="salary">Salary:</label>
+  <input type="text" id="salary" name=job[salary] value="" placeholder="Salary">
+  <br>
+  <br>
+  <input type="submit" name="submit" value="Create">
+</form>

@@ -1,20 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <style media="screen">
+      #menu {background-color: #563d7c;}
+      #menu a {color: white;}
+    </style>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script type="text/javascript">
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <title>JobSeeker</title>
   </head>
 
-  <body>
+  <body class="container">
 
-    <%= yield %>
-<br>
-<br>
-    <footer>
-      <a href="/">Main Menu</a> |
-      <a href="/">About</a> |
-      <a href="/">Contact</a> |
-      <a href="/">Sponsors</a>
+    <div class="row">
+      <div class="col" id="menu">
+        <a href="/">Main Menu</a>|
+        <a href="/">About</a>|
+        <a href="/">Contact</a>|
+        <a href="/">Sponsors</a>
+        <% if session.include? ("company_id")%>
+          <a href="/company/logoff">| Sign out <%= Company_helpers.current_user(session).name %></a>
+          <% elsif session.include? ("user_id") %>
+          <a href="/applicant/logoff">| Sign out <%= Applicant_helpers.current_user(session).name %></a>
+          <% else %>
 
-    </footer>
+        <% end %>
+      </div>
+    </div>
+
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
+
+      <div class="row">
+        <div class="col">
+          <%= yield %>
+        </div>
+      </div>
+
+
   </body>
+
 </html>

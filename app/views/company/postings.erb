@@ -1,0 +1,45 @@
+
+<h2>Job postings</h2>
+
+<p>
+ <h3><a href="/company/profile"> <%=@user.name%> </a> </h3>
+
+<%  @user.jobs.each do |obj| %>
+
+    <p>
+      <ul style="list-style: none;">
+      <li>Title:</li>
+        <%=obj.title %>
+      <li>Date:</li>
+        <%=obj.date %>
+      <li>Job Type:</li>
+        <%=obj.job_type %>
+      <li>Location:</li>
+        <%=obj.location %>
+      <li>Requirements:</li>
+        <%=obj.requirements %>
+      <li>Salary:</li>
+        $<%=obj.salary %>
+      <p>Applicants:</p>
+
+
+      <% obj.applicants.each do |app| %>
+
+      <ul>
+        <li><a href="/applicant/profile/<%= app.name%>"><%= app.name %></a></li>
+      </ul>
+      <br>
+      <%end%>
+      <p><a href="/job/edit/<%=obj.id%>">Edit</a></p>
+      <p><a href="/job/delete/<%=obj.id%>">Delete</a></p>
+      <% end %>
+      </ul>
+    </p>
+
+
+
+</p>
+
+<a href="/job/new">Add a New Post</a>
+<br>
+<a href="/company/profile"> Back to the Profile Page</a>

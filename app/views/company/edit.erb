@@ -1,0 +1,30 @@
+
+
+  <h2>Profile Edit Page:</h2>
+
+<form class="" action="/company/edit" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <p>
+  <label for="">Username:</label>
+  <input type="text" name=company[username] value="<%=@user.username%>">
+  </p>
+  <p>
+  <label for="">password:</label>
+  <input type="password" name=company[password] value="">
+  </p>
+  <p>
+  <label for="">Name:</label>
+  <input type="text" name=company[name] value="<%=@user.name%>">
+  </p>
+  <p>
+  <label for="">Address:</label>
+  <input type="text" name=company[address] value="<%=@user.address%>">
+  </p>
+  <p>
+  <label for="">Description:</label>
+  <textarea name=company[description] value="<%=@user.description%>"> <%=@user.description%> </textarea>
+  </p>
+  <p>
+  <input type="submit" name="submit" value="submit">
+  <input type="reset">
+</form>
