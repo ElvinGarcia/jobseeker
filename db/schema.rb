@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228164228) do
+ActiveRecord::Schema.define(version: 20180304204318) do
 
   create_table "Companies", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20180228164228) do
     t.string "password_digest"
     t.string "username"
     t.string "address"
+  end
+
+  create_table "Companies_applicants", id: false, force: :cascade do |t|
+    t.integer "Company_id", null: false
+    t.integer "applicant_id", null: false
+    t.index ["Company_id"], name: "index_Companies_applicants_on_company_id"
+    t.index ["applicant_id"], name: "index_Companies_applicants_on_applicant_id"
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -31,10 +38,9 @@ ActiveRecord::Schema.define(version: 20180228164228) do
     t.string "username"
   end
 
-  create_table "applicants_jobs", force: :cascade do |t|
-    t.integer "job_id"
-    t.integer "company_id"
-    t.integer "applicant_id"
+  create_table "applicants_jobs", id: false, force: :cascade do |t|
+    t.integer "applicant_id", null: false
+    t.integer "job_id", null: false
   end
 
   create_table "jobs", force: :cascade do |t|

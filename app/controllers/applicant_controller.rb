@@ -34,7 +34,6 @@ class ApplicantController < ApplicationController
 
   end
 
-
   get '/applicant/logoff' do
     if Applicant_helpers.logged_in?(session)
       session.clear

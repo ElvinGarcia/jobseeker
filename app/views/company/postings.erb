@@ -2,9 +2,10 @@
 <h2>Job postings</h2>
 
 <p>
- <h3><a href="/company/profile"> <%=@user.name%> </a> </h3>
 
-<%  @user.jobs.each do |obj| %>
+ <h3><a href="/company/profile"> <%=@company.name%> </a> </h3>
+
+<%  @company.jobs.each do |obj| %>
 
     <p>
       <ul style="list-style: none;">
@@ -22,6 +23,7 @@
         $<%=obj.salary %>
       <p>Applicants:</p>
 
+    <%= binding.pry %>
 
       <% obj.applicants.each do |app| %>
 

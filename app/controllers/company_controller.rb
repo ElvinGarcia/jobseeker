@@ -4,7 +4,7 @@ class CompanyController < ApplicationController
 
   get '/company/login' do
     if Company_helpers.logged_in?(session)
-      @user = Company_helpers.current_user(session)
+      @company = Company_helpers.current_user(session)
       redirect to '/company/profile'
     end
     erb:"/company/index"
@@ -16,7 +16,7 @@ class CompanyController < ApplicationController
   end
 
   get '/company/profile' do
-      @user = Company_helpers.current_user(session)
+      @company = Company_helpers.current_user(session)
     erb:'/company/profile'
   end
 
@@ -30,19 +30,19 @@ class CompanyController < ApplicationController
   end
 
   get '/company/delete' do
-    user = Company_helpers.current_user(session).destroy
+    company = Company_helpers.current_user(session).destroy
     session.clear
     redirect to "/company/login"
   end
 
   get '/company/edit' do
-    @user = Company_helpers.current_user(session)
+    @company = Company_helpers.current_user(session)
     erb:"/company/edit"
   end
 
   get '/company/postings' do
      if Company_helpers.logged_in?(session)
-        @user = Company_helpers.current_user(session)
+        @company = Company_helpers.current_user(session)
         erb:'/company/postings'
       else
         redirect to '/company/login'
@@ -50,19 +50,19 @@ class CompanyController < ApplicationController
   end
 
   get '/company/:id' do
-    @user = Company.find(params[:id])
+    @company = Company.find(params[:id])
     erb:'/company/profile'
   end
 
   post '/company/new' do
-      @user = Company.create(params[:company])
-      session[:company_id]=@user.id
+      @company = Company.create(params[:company])
+      session[:company_id]=@company.id
     redirect to "/company/profile"
   end
 
   post '/company/login' do
-    if  @user = Company_helpers.find_and_auth(params)
-      session[:company_id]=@user.id
+    if  @company = Company_helpers.find_and_auth(params)
+      session[:company_id]=@company.id
       erb:'/company/profile'
     else
      flash[:message] = "ooh! oh! Something Went Wrong! Either the Username and/or Password is Incorrect!"
@@ -72,9 +72,9 @@ class CompanyController < ApplicationController
 
 
   patch '/company/edit' do
-    user = Company_helpers.current_user(session)
+    company = Company_helpers.current_user(session)
 binding.pry
-    user.update(params[:company])
+    company.update(params[:company])
     # if !params[:password].empty?
     #   user.update(password:params[:password])
     # end
