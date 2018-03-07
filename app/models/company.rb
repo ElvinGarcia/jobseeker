@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
    has_many :ApplicantsJobs
    has_many :Companies_applicants
 
-   has_many :applicants, through: :Companies_applicant
+   has_many :applicants, through: :CompaniesApplicants
    has_many :jobs
 
 

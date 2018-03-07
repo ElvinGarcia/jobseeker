@@ -23,16 +23,17 @@
         $<%=obj.salary %>
       <p>Applicants:</p>
 
-      <%= binding.pry %>
-      
-
-      <p><a href="/job/edit/<%=obj.id%>">Edit</a></p>
-      <p><a href="/job/delete/<%=obj.id%>">Delete</a></p>
+      <% if !obj.applicants.empty? %>
+        <% obj.applicants.each do |app| %>
+        <li><a href="/applicant/profile/<%= app.name%>"><%= app.name%> </a></li>
+        <% end %>
+      <% end %>
+      <br>
+       <a href="/job/edit/<%=obj.id%>">Edit</a>
+      | <a href="/job/delete/<%=obj.id%>">Delete</a>
       <% end %>
       </ul>
     </p>
-
-
 
 </p>
 
