@@ -1,4 +1,5 @@
-class Applicants_job < ActiveRecord::Base
+class ApplicantsJob < ActiveRecord::Base
   belongs_to :job
   belongs_to :applicant
+
 end

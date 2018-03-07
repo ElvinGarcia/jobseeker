@@ -1,7 +1,8 @@
 class Job < ActiveRecord::Base
   belongs_to :company
-  has_many   :applicants_jobs
-  has_many   :applicants, through: :applicants_job
+
+  has_many   :ApplicantsJobs
+  has_many   :applicants, through: :ApplicantsJobs
 
 
    include Slugifiable::Slug

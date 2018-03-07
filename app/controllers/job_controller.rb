@@ -4,6 +4,7 @@ class JobController < ApplicationController
 
   get '/job/new' do
     @user = Company_helpers.current_user(session)
+    binding.pry
     erb:'/job/new'
   end
 
@@ -25,8 +26,8 @@ class JobController < ApplicationController
       if Company_helpers.logged_in?(session)
 
         @company = Company_helpers.current_user(session)
-        binding.pry
-      #  @company.jobs.build(params[:job]).save
+      #  binding.pry
+        @company.jobs.build(params[:job]).save
          redirect to '/company/postings'
        else
          flash[:message] = "You must be signed in inorder to create a job post !!"

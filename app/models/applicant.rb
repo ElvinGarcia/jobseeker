@@ -1,10 +1,10 @@
 class Applicant < ActiveRecord::Base
   has_secure_password
-  has_many :applicants_jobs
-  has_many :Companies_applicants
+  has_many :ApplicantsJobs
+  has_many :Companies_applicant
 
   has_many :companies, through: :Companies_applicant
-  has_many :jobs, through: :applicants_job
+  has_many :jobs, through: :ApplicantsJobs
 
 
 

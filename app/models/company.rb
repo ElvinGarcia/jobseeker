@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
   has_secure_password
-   has_many :applicants_jobs
+   has_many :ApplicantsJobs
    has_many :Companies_applicants
 
    has_many :applicants, through: :Companies_applicant
