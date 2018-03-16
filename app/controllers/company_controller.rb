@@ -36,8 +36,15 @@ class CompanyController < ApplicationController
   end
 
   get '/company/edit' do
-    @company = Company_helpers.current_user(session)
-    erb:"/company/edit"
+    if Company_helpers.logged_in?(session)
+      @company = Company_helpers.current_user(session)
+      erb:"/company/edit"
+    else
+      flash[:message] = "ooh! oh! You must be signed in to make changes to this profile"
+      redirect to "/company/login"
+    end
+
+
   end
 
   get '/company/postings' do
@@ -73,11 +80,10 @@ class CompanyController < ApplicationController
 
   patch '/company/edit' do
     company = Company_helpers.current_user(session)
-binding.pry
     company.update(params[:company])
-    # if !params[:password].empty?
-    #   user.update(password:params[:password])
-    # end
+     if !params[:password].nil?
+       company.update(password:params[:password])
+     end
     redirect to '/company/profile'
   end
 

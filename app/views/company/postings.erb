@@ -21,8 +21,8 @@
         <%=obj.requirements %>
       <li>Salary:</li>
         $<%=obj.salary %>
-      <p>Applicants:</p>
-
+        <br>
+      Applicants:
       <% if !obj.applicants.empty? %>
         <% obj.applicants.each do |app| %>
         <li><a href="/applicant/profile/<%= app.name%>"><%= app.name%> </a></li>
@@ -40,3 +40,5 @@
 <a href="/job/new">Add a New Post</a>
 <br>
 <a href="/company/profile"> Back to the Profile Page</a>
+
+<!-- links must be display based on conditionals -->

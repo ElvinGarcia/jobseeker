@@ -22,16 +22,19 @@ class ApplicantController < ApplicationController
 
   get '/applicant/job/:id' do
     if Applicant_helpers.logged_in?(session)
-      job = Job.find(params[:id])
-      binding.pry
-    #  user = Applicant_helpers.current_user(session)
-    #  user.jobs << job
-    #  job.applicants << user
-      redirect to '/applicant/profile'
+        job = Job.find(params[:id])
+        @user = Applicant_helpers.current_user(session)
+
+        if @user.jobs.include?(job)
+          flash[:message] = "You Already Applied to This Job Posting"
+          redirect to '/job/index'
+        else
+          @user.jobs << job
+          flash[:message] = "Your Application Was submmited Successfully!"
+          redirect to '/applicant/profile'
+        end
      else
         flash[:message] = "ooh! oh! You are currently not logged in"
-    end
-
   end
 
   get '/applicant/logoff' do
@@ -72,14 +75,13 @@ class ApplicantController < ApplicationController
 
 
   post '/applicant/new' do
-binding.pry
       @user = Applicant.create(params[:applicant] )
       session[:user_id]=@user.id
     redirect to "/applicant/profile"
   end
 
   post '/applicant/login' do
-    if  @user = Applicant_helpers.find_and_auth(params)
+    ifd  @user = Applicant_helpers.find_and_auth(params)
       session[:user_id]=@user.id
       erb:'/applicant/profile'
     else
@@ -90,7 +92,6 @@ binding.pry
 
   patch '/applicant/edit' do
    if Applicant_helpers.logged_in?(session)
-binding.pry
      user = Applicant_helpers.current_user(session)
         user.update(name:params[:name], address:params[:address], objective: params[:objective],github: params[:github],blog:params[:blog])
      if !params[:password].empty?

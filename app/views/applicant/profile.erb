@@ -15,7 +15,17 @@
   <li>Blog:</li>
   <li> <a href="<%= @user.blog %>"><%= @user.blog %></a> </li>
   <li>Jobs Applied:</li>
-  <%= binding.pry %>
+
+    <% if !@user.jobs.empty? %>
+          <%  @user.jobs.sort_by(&:company_id).each do |obj| %>
+          <a href="/job/<%=obj.id%>"> <%= obj.title %> </a> ||
+        (<a href="/company/<%=obj.company.id%>"> <%= obj.company.name %> </a>)
+        <br>
+        <a href="#">delete</a>
+        <br>
+
+        <% end %>
+    <% end %>
 
 
 </ul>
