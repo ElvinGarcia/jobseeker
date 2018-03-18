@@ -20,6 +20,19 @@ class ApplicantController < ApplicationController
     erb :'/applicant/profile'
   end
 
+  get '/applicant/job/delete/:id' do
+    if Applicant_helpers.logged_in?(session)
+       user = Applicant_helpers.current_user(session)
+      if job = user.jobs.find(params[:id])
+        user.jobs.delete(job)
+        flash[:message] = "The Record Was Deleted Successfully"
+        redirect to '/applicant/profile'
+      else
+        flash[:message] = "Deletion Was Unsuccessul! Please Try Again Later"
+      end
+    end
+  end
+#this controller might not be needed since jobs the were prev applied for will not be displayed unless deleted from the user profile
   get '/applicant/job/:id' do
     if Applicant_helpers.logged_in?(session)
         job = Job.find(params[:id])
@@ -35,6 +48,7 @@ class ApplicantController < ApplicationController
         end
      else
         flash[:message] = "ooh! oh! You are currently not logged in"
+    end
   end
 
   get '/applicant/logoff' do
@@ -81,7 +95,7 @@ class ApplicantController < ApplicationController
   end
 
   post '/applicant/login' do
-    ifd  @user = Applicant_helpers.find_and_auth(params)
+    if  @user = Applicant_helpers.find_and_auth(params)
       session[:user_id]=@user.id
       erb:'/applicant/profile'
     else

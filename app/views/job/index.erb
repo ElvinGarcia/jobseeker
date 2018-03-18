@@ -1,19 +1,20 @@
 <h1>Job Postings</h1>
 
-  <%@company.each do |obj|%>
-     <h2> <%= obj.name %> </h2>
-      <%obj.jobs.each do |subobj|%>
-      <% if !@user.jobs.find_by!(title:subobj.title ,date:subobj.date, job_type:subobj.job_type , location:subobj.location, requirements:subobj.requirements, salary:subobj.salary, company_id:subobj.company_id) %>
-      <ul style="list-style: none;">
-        <li> Title:</li>        <%= subobj.title        %>  </li>
-        <li> Date:</li>         <%= subobj.date         %>  </li>
-        <li> Job Typeli</li>     <%= subobj.job_type     %>  </li>
-        <li> Location:</li>     <%= subobj.location     %>  </li>
-        <li> Requirements:</li> <%= subobj.requirements %>  </li>
-        <li> Salary:</li>       <%= subobj.salary       %>  </li>
-        <li> <a href="/applicant/job/<%=subobj.id%>">Apply</a> </li>
-      </ul>
-      <% end %>
+<% @company.each do |company_obj|  %>
+<h2> <%= company_obj.name %> </h2>
+  <% company_obj.jobs.each do |company_job| %>
+    <% if !@user.jobs.exists?(company_job.id) %>
 
-        <%end%>
-      <%end%>
+        <ul style="list-style: none;">
+          <li> Title:</li>        <%= company_job.title        %>  </li>
+          <li> Date:</li>         <%= company_job.date         %>  </li>
+          <li> Job Typeli</li>     <%= company_job.job_type     %>  </li>
+          <li> Location:</li>     <%= company_job.location     %>  </li>
+          <li> Requirements:</li> <%= company_job.requirements %>  </li>
+          <li> Salary:</li>       <%= company_job.salary       %>  </li>
+          <li> <a href="/applicant/job/<%=company_job.id%>">Apply</a> </li>
+        </ul>
+
+    <% end  %>
+  <% end %>
+<% end %>

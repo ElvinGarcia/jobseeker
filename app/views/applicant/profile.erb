@@ -21,7 +21,7 @@
           <a href="/job/<%=obj.id%>"> <%= obj.title %> </a> ||
         (<a href="/company/<%=obj.company.id%>"> <%= obj.company.name %> </a>)
         <br>
-        <a href="#">delete</a>
+        <a href="/applicant/job/delete/<%=obj.id%>">delete</a>
         <br>
 
         <% end %>
