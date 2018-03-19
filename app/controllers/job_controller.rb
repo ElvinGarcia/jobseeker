@@ -22,7 +22,7 @@ class JobController < ApplicationController
     if session["company_id"] == @job.company.id
     erb:"/job/edit"
     else
-      binding.pry
+      flash[:message] = "You must be signed in inorder to edit this job posting !!"
     end
   end
 

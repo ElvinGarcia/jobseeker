@@ -32,17 +32,12 @@ class ApplicantController < ApplicationController
       end
     end
   end
-#this controller might not be needed since jobs the were prev applied for will not be displayed unless deleted from the user profile
+
+
   get '/applicant/job/:id' do
     if Applicant_helpers.logged_in?(session)
         job = Job.find(params[:id])
-        @user = Applicant_helpers.current_user(session)
-
-        # if @user.jobs.include?(job)
-        #   flash[:message] = "You Already Applied to This Job Posting"
-        #   redirect to '/job/index'
-        # else
-          @user.jobs << job
+        @user = Applicant_helpers.current_user(session).jobs << job
           flash[:message] = "Your Application Was submmited Successfully!"
           redirect to '/applicant/profile'
      else
