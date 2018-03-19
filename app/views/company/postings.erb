@@ -1,44 +1,34 @@
 
-<h2>Job postings</h2>
+<h1>Job postings</h1>
 
-<p>
-
- <h3><a href="/company/profile"> <%=@company.name%> </a> </h3>
+ <h2><a href="/company/profile"> <%=@company.name%> </a> </h2>
 
 <%  @company.jobs.each do |obj| %>
-
-    <p>
-      <ul style="list-style: none;">
-      <li>Title:</li>
-        <%=obj.title %>
-      <li>Date:</li>
-        <%=obj.date %>
-      <li>Job Type:</li>
-        <%=obj.job_type %>
-      <li>Location:</li>
-        <%=obj.location %>
-      <li>Requirements:</li>
-        <%=obj.requirements %>
-      <li>Salary:</li>
-        $<%=obj.salary %>
+    <ul style="list-style: none;">
         <br>
+      <li>Title:</li> <%=obj.title %>
+      <li>Date:</li> <%=obj.date %>
+      <li>Job Type:</li> <%=obj.job_type %>
+      <li>Location:</li> <%=obj.location %>
+      <li>Requirements:</li> <%=obj.requirements %>
+      <li>Salary:</li> $<%=obj.salary %>
+      <br>
       Applicants:
       <% if !obj.applicants.empty? %>
         <% obj.applicants.each do |app| %>
         <li><a href="/applicant/profile/<%= app.name%>"><%= app.name%> </a></li>
+
         <% end %>
       <% end %>
       <br>
-       <a href="/job/edit/<%=obj.id%>">Edit</a>
-      | <a href="/job/delete/<%=obj.id%>">Delete</a>
-      <% end %>
+       <a href="/job/edit/<%=obj.id%>">Edit</a> |
+       <a href="/job/delete/<%=obj.id%>">Delete</a>
       </ul>
-    </p>
+      <% end %>
 
-</p>
 
-<a href="/job/new">Add a New Post</a>
+
+
+<a href="/job/new"> New Post</a>
 <br>
-<a href="/company/profile"> Back to the Profile Page</a>
-
-<!-- links must be display based on conditionals -->
+<a href="/company/profile"> Profile Page</a>

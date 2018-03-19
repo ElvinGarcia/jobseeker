@@ -26,16 +26,15 @@
 
         <% end %>
     <% end %>
-
-
 </ul>
+<br>
+<br>
 
-  <p>
-    <a href="/applicant/edit">Edit</a>
-  </p>
-  <p>
-    <a href="/job/index">Job Postings</a>
-  </p>
-  <p>
-    <a href="/applicant/delete">Delete Account</a>
-  </p>
+<!-- display links depending on who is logged in -->
+ <% unless  @user.id != session[:user_id] %>
+     <ul style="list-style: none;">
+     <li>  <a href="/applicant/edit">Edit</a> </li>
+     <li>  <a href="/job/index">Job Postings</a> </li>
+     <li>  <a href="/applicant/delete">Delete Account</a> </li>
+     </ul>
+ <% end %>
