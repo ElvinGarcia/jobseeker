@@ -25,10 +25,10 @@ class ApplicantController < ApplicationController
        user = Applicant_helpers.current_user(session)
       if job = user.jobs.find(params[:id])
         user.jobs.delete(job)
-        flash[:message] = "The Record Was Deleted Successfully"
+        flash[:message] = "Your Applican was Successfully Retracted"
         redirect to '/applicant/profile'
       else
-        flash[:message] = "Deletion Was Unsuccessul! Please Try Again Later"
+        flash[:message] = "Retraction Was Unsuccessul! Please Try Again Later"
       end
     end
   end
@@ -38,16 +38,16 @@ class ApplicantController < ApplicationController
         job = Job.find(params[:id])
         @user = Applicant_helpers.current_user(session)
 
-        if @user.jobs.include?(job)
-          flash[:message] = "You Already Applied to This Job Posting"
-          redirect to '/job/index'
-        else
+        # if @user.jobs.include?(job)
+        #   flash[:message] = "You Already Applied to This Job Posting"
+        #   redirect to '/job/index'
+        # else
           @user.jobs << job
           flash[:message] = "Your Application Was submmited Successfully!"
           redirect to '/applicant/profile'
-        end
      else
         flash[:message] = "ooh! oh! You are currently not logged in"
+        redirect to '/applicant/login'
     end
   end
 
