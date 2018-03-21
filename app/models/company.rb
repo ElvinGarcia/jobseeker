@@ -1,5 +1,11 @@
 class Company < ActiveRecord::Base
   has_secure_password
+
+  validates :name, presence: true
+  validates :username, presence: true
+  validates :password, presence: true
+
+
    has_many :ApplicantsJobs
    has_many :CompaniesApplicants #ApplicantsCompanies
    has_many :applicants, through: :CompaniesApplicants #ApplicantsCompanies

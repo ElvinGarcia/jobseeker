@@ -1,4 +1,11 @@
 class Job < ActiveRecord::Base
+
+  validates :title, presence: true, uniqueness: {message: "already exists"}
+  validates :job_type, presence: true
+  validates :location, presence: true
+  validates :requirements, presence: true
+
+
   belongs_to :company
 
   has_many   :ApplicantsJobs

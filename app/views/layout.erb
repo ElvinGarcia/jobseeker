@@ -40,12 +40,20 @@
     </div>
 
 <div class="flash_message">
-
     <% if flash.has?(:message) %>
     <%= flash[:message] %>
     <% end %>
-
 </div>
+<br>
+
+<div class="error_message">
+  <% unless @error == nil %>
+    <% @error.each do |k,v| %>
+    <%= "#{k.capitalize}:" " #{v[0]}" %> <br>
+      <% end %>
+  <% end %>
+</div>
+<br>
       <div class="row">
         <div class="col">
           <%= yield %>

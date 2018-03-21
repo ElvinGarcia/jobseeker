@@ -1,5 +1,10 @@
 class Applicant < ActiveRecord::Base
+  validates :username, presence: true
+  validates :name, presence: true
+  validates :password, presence: true
+
   has_secure_password
+
   has_many :ApplicantsJobs
   has_many :CompaniesApplicants #ApplicantsCompanies
 

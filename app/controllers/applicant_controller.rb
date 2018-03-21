@@ -84,9 +84,14 @@ class ApplicantController < ApplicationController
 
 
   post '/applicant/new' do
-      @user = Applicant.create(params[:applicant] )
-      session[:user_id]=@user.id
-    redirect to "/applicant/profile"
+      if Applicant.create(params[:applicant]).valid?
+        @user = Applicant.create(params[:applicant] )
+        session[:user_id]=@user.id
+        redirect to "/applicant/profile"
+      else
+        @error = Applicant.create(params[:applicant]).errors.messages
+        erb:'/applicant/new'
+      end
   end
 
   post '/applicant/login' do

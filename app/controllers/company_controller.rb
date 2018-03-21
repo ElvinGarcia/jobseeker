@@ -62,9 +62,14 @@ class CompanyController < ApplicationController
   end
 
   post '/company/new' do
-      @company = Company.create(params[:company])
-      session[:company_id]=@company.id
-    redirect to "/company/profile"
+      if Company.create(params[:company]).valid?
+        @company = Company.create(params[:company])
+        session[:company_id]=@company.id
+        redirect to "/company/profile"
+      else
+        @error = Company.create(params[:company]).errors.messages
+        erb:'/company/new'
+      end
   end
 
   post '/company/login' do

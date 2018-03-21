@@ -1,16 +1,17 @@
 
+
 <p>Create a New Profile</p>
 
 <form class="" action="/applicant/new" method="post">
-  <label for="username">Username:</label>
+  <label for="username">* Username:</label>
   <input type="username" id="username" name=applicant[username] value="" placeholder="Username"/>
   <br>
   <br>
-  <label for="password">password:</label>
+  <label for="password">* password:</label>
   <input type="password" id="password" name=applicant[password] value="" placeholder="enter a strong password"/>
   <br>
   <br>
-  <label for="name">Full Name:</label>
+  <label for="name">* Full Name:</label>
   <input type="name" id="name" name=applicant[name] value="" placeholder="Full Name"/>
   <br>
   <br>
@@ -33,3 +34,6 @@
   <br>
   <input type="submit" name="Submit" value="Create">
 </form>
+
+
+<p>* require fields</p>

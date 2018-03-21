@@ -29,12 +29,18 @@ class JobController < ApplicationController
   post '/job/new' do
       if Company_helpers.logged_in?(session)
         @company = Company_helpers.current_user(session)
-        @company.jobs.build(params[:job]).save
-         redirect to '/company/postings'
-       else
+          if @company.jobs.build(params[:job]).valid?
+              @company.jobs.build(params[:job]).save
+              redirect to '/company/postings'
+            else
+              @error = @company.jobs.build(params[:job]).errors.messages
+              
+                erb:'/job/new'
+            end
+          else
          flash[:message] = "You must be signed in inorder to create a job post !!"
          redirect to '/company/login'
-         #company needs to be logged_in to create a posting
+         #company needs to be logged_in to create posts
       end
   end
 
