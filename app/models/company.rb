@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, Confirmation: true
 
 
    has_many :ApplicantsJobs

@@ -61,8 +61,7 @@ class CompanyController < ApplicationController
     erb:'/company/profile'
   end
 
-#change this code to take advantage of record duplicate validations
-#when creating a new record
+
   post '/company/new' do
       if Company.create(params[:company]).valid?
         @company = Company.create(params[:company])
