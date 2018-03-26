@@ -1,19 +1,18 @@
 
 <p>Welcome</p>
 
-<% if flash.has?(:message) %>
-<%= flash[:message] %>
-<% end %>
-
 
  <form class="" action="/applicant/login" method="post">
-<ul style="list-style: none;">
-  <li> <label for="username:">username:</label>
-   <input id="username:" type="text" name="username" value="" placeholder="username"> </li>
-  <li> <label for="password:">password:</label>
-     <input id="password:" type="password" name="password" value="" placeholder="password"> </li>
-  <li> <input type="submit" name="submit" value="submit"> </li>
-</ul>
-</form>
+    <label for="username:">username:</label>
+    <input id="username:" type="text" name="username" value="" placeholder="username" class="form-control">
+
+    <label for="password:">password:</label>
+    <input id="password:" type="password" name="password" value="" placeholder="password" class="form-control">
+      <br>
+    <input type="submit" name="submit" value="submit">
+      <br>
+      <br>
+
+
 
 <a href="/applicant/new">Create An Account</a>

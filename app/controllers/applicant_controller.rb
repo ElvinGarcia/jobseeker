@@ -6,9 +6,8 @@ class ApplicantController < ApplicationController
     if Applicant_helpers.logged_in?(session)
       redirect to '/applicant/profile'
     else
-      flash[:message] = "ooh! oh! You are currently not logged in"
-    end
     erb:"applicant/index"
+    end
   end
 
   get '/applicant/new' do
@@ -99,7 +98,6 @@ class ApplicantController < ApplicationController
       session[:user_id]=@user.id
       erb:'/applicant/profile'
     else
-     flash[:message] = "ooh! oh! Something Went Wrong! Either the Username and/or Password is Incorrect!"
       redirect to "/applicant/login"
     end
   end

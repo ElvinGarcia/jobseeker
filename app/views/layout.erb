@@ -22,44 +22,59 @@
   </head>
 
   <body class="container">
+      <div class="row" id="menu">
+        <div class="col-sm-3">
+          <a href="/">Main Menu</a>
+        </div>
+        <div class="col-sm-3">
+          <a href="/">About</a>
+        </div>
+        <div class="col-sm-3">
+          <a href="/">Contact</a>
+        </div>
+        <div class="col-sm-3">
+          <a href="/">Sponsors</a>
+        </div>
+        <div class="col-sm-12">
+          <% if session.include? ("company_id")%>
+            <a href="/company/logoff"> Sign out <%= Company_helpers.current_user(session).name %></a>
+            <% elsif session.include? ("user_id") %>
+            <a href="/applicant/logoff"> Sign out <%= Applicant_helpers.current_user(session).name %></a>
+            <% else %>
+          <% end %>
+        </div>
+    </div> <!-- ending container div -->
 
-    <div class="row">
-      <div class="col" id="menu">
-        <a href="/">Main Menu</a>|
-        <a href="/">About</a>|
-        <a href="/">Contact</a>|
-        <a href="/">Sponsors</a>
-        <% if session.include? ("company_id")%>
-          <a href="/company/logoff">| Sign out <%= Company_helpers.current_user(session).name %></a>
-          <% elsif session.include? ("user_id") %>
-          <a href="/applicant/logoff">| Sign out <%= Applicant_helpers.current_user(session).name %></a>
-          <% else %>
-
-        <% end %>
-      </div>
-    </div>
-
-<div class="flash_message">
+<div class="flash_message container">
+  <div class="row">
+    <div class="col-sm-12">
     <% if flash.has?(:message) %>
     <%= flash[:message] %>
     <% end %>
+    </div>
+  </div>
 </div>
 <br>
 
-<div class="error_message">
+<div class="error_message container">
+  <div class="row">
+    <div class="col-sm-12">
   <% unless @error == nil %>
     <% @error.each do |k,v| %>
     <%= "#{k.capitalize}:" " #{v[0]}" %> <br>
       <% end %>
   <% end %>
+  </div>
+ </div>
 </div>
 <br>
+      <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col-md-6">
           <%= yield %>
         </div>
+       </div>
       </div>
-
 
   </body>
 
