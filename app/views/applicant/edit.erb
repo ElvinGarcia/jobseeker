@@ -1,7 +1,7 @@
 
   <h2>Profile Edit Page:</h2>
 
-<form class="" action="/applicant/edit" method="post">
+<form class="navbar navbar-light bg-light" action="/applicant/edit" method="post">
   <input type="hidden" name="_method" value="patch">
   <p>
   <label for="">Username:</label>
@@ -31,6 +31,6 @@
   <label for="">Blog:</label>
   <input type="text" name="blog" value="<%=@user.blog%>">
   </p>
-  <input type="submit" name="submit" value="submit">
-  <input type="reset">
+  <input type="submit" name="submit" value="submit" class="btn btn-outline-success">
+  <input type="reset" class="btn btn-outline-success">
 </form>

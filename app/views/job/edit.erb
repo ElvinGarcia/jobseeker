@@ -1,7 +1,7 @@
 
  <h3>  <a href="/company/profile"> <%= @job.company.name%></a> </h3>
 
-  <form class="" action="/job/edit/<%=@job.id%>" method="post">
+  <form class="navbar navbar-light bg-light" action="/job/edit/<%=@job.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
 
     <p>
@@ -34,6 +34,6 @@
     <input type="text" id="salary" name="salary" value="<%=@job.salary%>" placeholder="Annually">
     </p>
 
-    <input type="submit" name="submit" value="update">
+    <input type="submit" name="submit" value="update" class="btn btn-outline-success">
 
   </form>

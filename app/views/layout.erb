@@ -6,9 +6,11 @@
       #menu {background-color: #563d7c;}
       #menu a {color: white;}
     </style>
+
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
     <script type="text/javascript">
       src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -21,21 +23,24 @@
     <title>JobSeeker</title>
   </head>
 
-  <body class="container">
-      <div class="row" id="menu">
-        <div class="col-sm-3">
+  <body class="container ">
+  <div class="row navbar navbar-expand-lg navbar-light bg-light" id="menu">
+    <div class="col-sm-2">
+    <a class="navbar-brand" href="/">JobSeeker</a>
+      </div>
+        <div class="col-sm-2">
           <a href="/">Main Menu</a>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <a href="/">About</a>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <a href="/">Contact</a>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <a href="/">Sponsors</a>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-2">
           <% if session.include? ("company_id")%>
             <a href="/company/logoff"> Sign out <%= Company_helpers.current_user(session).name %></a>
             <% elsif session.include? ("user_id") %>
@@ -44,6 +49,8 @@
           <% end %>
         </div>
     </div> <!-- ending container div -->
+
+
 
 <div class="flash_message container">
   <div class="row">

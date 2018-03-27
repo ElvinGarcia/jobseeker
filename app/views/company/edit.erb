@@ -2,7 +2,7 @@
 
   <h2>Profile Edit Page:</h2>
 
-<form class="" action="/company/edit" method="post">
+<form class="navbar navbar-light bg-light" action="/company/edit" method="post">
   <input type="hidden" name="_method" value="patch">
   <p>
   <label for="">Username:</label>
@@ -25,6 +25,6 @@
   <textarea name=company[description] value="<%=@company.description%>"> <%=@company.description%> </textarea>
   </p>
   <p>
-  <input type="submit" name="submit" value="update">
-  <input type="reset">
+  <input type="submit" name="submit" value="update"class="btn btn-outline-success">
+  <input type="reset" class="btn btn-outline-success">
 </form>

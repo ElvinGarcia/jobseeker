@@ -5,9 +5,9 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
   set :environment, :development
 
+
   get '/' do
     erb :index
   end
-
 
 end
