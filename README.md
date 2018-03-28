@@ -34,3 +34,6 @@ Things you may want to cover:
 
 * Database creation
   - Although this project uses sqlite3 it is database agnostic and most database of choice can be changed under the the config's folder ```environment.rb``` file .
+
+* license
+  - This Project is cover under the MIT license Agreement.
