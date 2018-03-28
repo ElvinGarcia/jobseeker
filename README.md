@@ -1,9 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+This project keeps track of jobs applicants applied for and also allows companies which jobs applicants had applied for.
 
 * Although earlier versions might work, this project was build using Ruby version 2.5.0, Rails version 5.1.5 and Sinatra
 
@@ -34,6 +32,7 @@ Things you may want to cover:
 
 * Database creation
   - Although this project uses sqlite3 it is database agnostic and most database of choice can be changed under the the config's folder ```environment.rb``` file .
+
 
 * license
   - This Project is cover under the MIT license Agreement.
