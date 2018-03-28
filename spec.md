@@ -20,6 +20,3 @@ Confirm
 
 
 ---
-- [x] include rails hook for data validation when form submission is trigger
-- [ ] include some Boostrap for more visual effect
-*

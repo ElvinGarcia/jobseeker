@@ -6,12 +6,12 @@
     <% if !@user.jobs.exists?(company_job.id) %>
 
         <ul style="list-style: none;">
-          <li> Title:</li>        <%= company_job.title        %>  
-          <li> Date:</li>         <%= company_job.date         %>  
-          <li> Job Typeli</li>     <%= company_job.job_type     %>  
-          <li> Location:</li>     <%= company_job.location     %>  
-          <li> Requirements:</li> <%= company_job.requirements %>  
-          <li> Salary:</li>       <%= company_job.salary       %>  
+          <li> Title:</li>        <%= company_job.title        %>
+          <li> Date:</li>         <%= company_job.date         %>
+          <li> Job Type</li>     <%= company_job.job_type     %>  
+          <li> Location:</li>     <%= company_job.location     %>
+          <li> Requirements:</li> <%= company_job.requirements %>
+          <li> Salary:</li>       <%= company_job.salary       %>
           <li> <a href="/applicant/job/<%=company_job.id%>">Apply</a> </li>
         </ul>
 

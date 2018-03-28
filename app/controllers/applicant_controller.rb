@@ -24,7 +24,7 @@ class ApplicantController < ApplicationController
        user = Applicant_helpers.current_user(session)
       if job = user.jobs.find(params[:id])
         user.jobs.delete(job)
-        flash[:message] = "Your Applican was Successfully Retracted"
+        flash[:message] = "Your Applicantion was Successfully Retracted"
         redirect to '/applicant/profile'
       else
         flash[:message] = "Retraction Was Unsuccessul! Please Try Again Later"
