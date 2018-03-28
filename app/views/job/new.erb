@@ -2,9 +2,9 @@
 
 <p>Create a New Job Profile</p>
 
-<form class="navbar navbar-light bg-light" action="/job/new" method="post">
+<form class=" class="form-control"" action="/job/new" method="post">
   <label for="title">* Job Title:</label>
-  <input type="text" id="title" name=job[title] value="" placeholder="Title">
+  <input type="text" id="title" name=job[title] value="" placeholder="Title" class="form-control">
   <br>
   <br>
   <label for="company_name">Company Name:</label>
@@ -12,7 +12,7 @@
   <br>
   <br>
   <label for="date">Date:</label>
-  <input id="date" type="date" name=job[date] value="" placeholder="MM/DD/YYYY">
+  <input id="date" type="date" name=job[date] value="" placeholder="MM/DD/YYYY" class="form-control">
   <br>
   <br>
   <label for="job_type">* Type of Job:</label>
@@ -24,15 +24,15 @@
   <br>
   <br>
   <label for="location">* Location:</label>
-  <input type="text" id="location" name=job[location] value="" placeholder="Location">
+  <input type="text" id="location" name=job[location] value="" placeholder="Location" class="form-control">
   <br>
   <br>
   <label for="requirements">* Requirements:</label>
-  <textarea id="requirements" name=job[requirements] value=""></textarea>
+  <textarea id="requirements" name=job[requirements] value="" class="form-control"></textarea>
   <br>
   <br>
   <label for="salary">Salary:</label>
-  <input type="text" id="salary" name=job[salary] value="" placeholder="Annual Salary">
+  <input type="text" id="salary" name=job[salary] value="" placeholder="Annual Salary" class="form-control">
   <br>
   <br>
   <input type="submit" name="submit" value="Create" class="btn btn-outline-success">

@@ -31,6 +31,7 @@
 <br>
 
 <!-- display links depending on who is logged in -->
+<nav>
  <% unless  @user.id != session[:user_id] %>
      <ul style="list-style: none;">
      <li>  <a href="/applicant/edit">Edit</a> </li>
@@ -38,3 +39,4 @@
      <li>  <a href="/applicant/delete">Delete Account</a> </li>
      </ul>
  <% end %>
+</nav>

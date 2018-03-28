@@ -1,7 +1,9 @@
 # README
 
 
-This project keeps track of jobs applicants applied for and also allows companies which jobs applicants had applied for.
+This project keeps track of jobs applicants applied for and also allows companies which jobs applicants had applied for. An applicant would login or create an account. Once the applicant is logged in the applicant's profile page will display all the applicants signup information and the jobs the applicants have applied for before. Applicant have the option of deleting the job submission or applying for other jobs.
+
+Just like the applicant profile the companies options include the same applicant but with fewer choices.
 
 * Although earlier versions might work, this project was build using Ruby version 2.5.0, Rails version 5.1.5 and Sinatra
 

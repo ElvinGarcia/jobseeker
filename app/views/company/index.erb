@@ -1,21 +1,18 @@
 
 <p>Welcome</p>
 
-<% if flash.has?(:message) %>
-<%= flash[:message] %>
-<% end %>
-
-
- <form class="navbar navbar-light bg-light" action="/company/login" method="post">
-<ul style="list-style: none;">
-  <li> <label for="username">Business Username: </label> </li>
-      <input type="text" name="username" id="username" value="" placeholder="username">
+ <form class="" action="/company/login" method="post">
+    <label for="username">Business Username: </label>
+      <input type="text" name="username" id="username" value="" placeholder="username" class="form-control" autofocus>
     <br>
-  <li> <label for="password"> Password: </label>  </li>
-    <input type="password" name="password" id="password" value="" placeholder="password">
+   <label for="password"> Password: </label>
+    <input type="password" name="password" id="password" value="" placeholder="password" class="form-control">
     <br>
-  <li> <input type="submit" name="submit" value="submit" class="btn btn-outline-success"> </li>
-</ul>
+   <input type="submit" name="submit" value="submit" class="btn btn-outline-success">
 </form>
 
+<br>
+<br>
 <a href="/company/new">create an account</a>
+<br>
+<br>
