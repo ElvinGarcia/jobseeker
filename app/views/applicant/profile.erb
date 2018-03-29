@@ -21,9 +21,10 @@
           <a href="/job/<%=obj.id%>"> <%= obj.title %> </a> ||
         (<a href="/company/<%=obj.company.id%>"> <%= obj.company.name %> </a>)
         <br>
+    <% unless  @user.id != session[:user_id] %>
         <a href="/applicant/job/delete/<%=obj.id%>">delete</a>
         <br>
-
+    <% end %>
         <% end %>
     <% end %>
 </ul>

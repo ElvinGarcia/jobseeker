@@ -7,7 +7,14 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    erb :index
+    if session.include?("user_id")
+      redirect to '/applicant/login'
+    elsif session.include?("company_id")
+      redirect to '/company/login'
+    else
+      erb :index
+    end
+
   end
 
 end
