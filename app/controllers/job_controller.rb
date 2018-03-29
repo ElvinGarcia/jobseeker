@@ -34,7 +34,7 @@ class JobController < ApplicationController
               redirect to '/company/postings'
             else
               @error = @company.jobs.build(params[:job]).errors.messages
-              
+
                 erb:'/job/new'
             end
           else
@@ -59,6 +59,17 @@ class JobController < ApplicationController
     @job = Job.find(params[:id])
     @company = Company.find(@job.company_id)
     erb:"/job/profile"
+  end
+
+  get '/job/delete/:id' do
+    company = Company_helpers.current_user(session)
+    job = Job.find(params[:id])
+    if  company.jobs.include?(job)
+      company.jobs.find_by(job.attributes).destroy
+      redirect to '/company/postings'
+    else
+      flash[:message] = "Unable to Delete The post!!"
+    end
   end
 
 end
