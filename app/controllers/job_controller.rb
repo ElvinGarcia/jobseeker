@@ -23,6 +23,7 @@ class JobController < ApplicationController
     erb:"/job/edit"
     else
       flash[:message] = "You must be signed in inorder to edit this job posting !!"
+      redirect back
     end
   end
 
@@ -34,12 +35,11 @@ class JobController < ApplicationController
               redirect to '/company/postings'
             else
               @error = @company.jobs.build(params[:job]).errors.messages
-
-                erb:'/job/new'
-            end
-          else
+              erb:'/job/new'
+          end
+        else
          flash[:message] = "You must be signed in inorder to create a job post !!"
-         redirect to '/company/login'
+         redirect back
          #company needs to be logged_in to create posts
       end
   end
@@ -69,6 +69,7 @@ class JobController < ApplicationController
       redirect to '/company/postings'
     else
       flash[:message] = "Unable to Delete The post!!"
+      redirect back
     end
   end
 

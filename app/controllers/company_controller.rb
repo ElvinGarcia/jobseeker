@@ -41,10 +41,8 @@ class CompanyController < ApplicationController
       erb:"/company/edit"
     else
       flash[:message] = "ooh! oh! You must be signed in to make changes to this profile"
-      redirect to "/company/login"
+      redirect back
     end
-
-
   end
 
   get '/company/postings' do

@@ -28,7 +28,11 @@ class ApplicantController < ApplicationController
         redirect to '/applicant/profile'
       else
         flash[:message] = "Retraction Was Unsuccessul! Please Try Again Later"
+        redirect back
       end
+    else
+      flash[:message] = "You Must Be Logged In Inorder To Delete This Posting"
+      redirect back
     end
   end
 
@@ -41,7 +45,7 @@ class ApplicantController < ApplicationController
           redirect to '/applicant/profile'
      else
         flash[:message] = "ooh! oh! You are currently not logged in"
-        redirect to '/applicant/login'
+        redirect back
     end
   end
 
@@ -61,6 +65,7 @@ class ApplicantController < ApplicationController
       redirect to "/applicant/login"
     else
        flash[:message] = "ooh! oh! You are currently not logged in"
+       redirect back
     end
   end
 
@@ -70,6 +75,7 @@ class ApplicantController < ApplicationController
       erb:"/applicant/edit"
     else
       flash[:message] = "ooh! oh! You are currently not logged in"
+      redirect back
     end
   end
 
@@ -77,7 +83,8 @@ class ApplicantController < ApplicationController
     if @user = Applicant.find_by_slug(params[:slug])
       erb :'/applicant/profile'
     else
-       flash[:message] ="ooh! oh! that user profile doesn't exist or its private"
+       flash[:message] ="ooh! oh! The User Profile Requested Doesn't Exist Or Its Private"
+       redirect back
     end
   end
 
@@ -112,6 +119,7 @@ class ApplicantController < ApplicationController
      redirect to '/applicant/profile'
    else
      flash[:message] = "ooh! oh! You are currently not logged in"
+     redirect back
    end
 
   end
