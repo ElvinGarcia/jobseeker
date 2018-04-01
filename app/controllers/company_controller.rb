@@ -29,11 +29,14 @@ class CompanyController < ApplicationController
     end
   end
 
+
   get '/company/delete' do
     company = Company_helpers.current_user(session).destroy
     session.clear
     redirect to "/company/login"
   end
+
+
 
   get '/company/edit' do
     if Company_helpers.logged_in?(session)
@@ -84,7 +87,7 @@ class CompanyController < ApplicationController
 
   patch '/company/edit' do
     company = Company_helpers.current_user(session)
-    company.update(params[:company])
+    company.update!(params[:company])
      if !params[:password].nil?
        company.update(password:params[:password])
      end
