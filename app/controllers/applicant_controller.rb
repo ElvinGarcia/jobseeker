@@ -83,7 +83,7 @@ class ApplicantController < ApplicationController
     if @user = Applicant.find_by_slug(params[:slug])
       erb :'/applicant/profile'
     else
-       flash[:message] ="ooh! oh! The User Profile Requested Doesn't Exist Or Its Private"
+       flash[:message] ="ooh! oh! The User Profile Requested Doesn't Exist Or It Is Private"
        redirect back
     end
   end
@@ -105,6 +105,7 @@ class ApplicantController < ApplicationController
       session[:user_id]=@user.id
       erb:'/applicant/profile'
     else
+      flash[:message] = "Either The Password or Username is incorrect !"
       redirect to "/applicant/login"
     end
   end
