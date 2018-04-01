@@ -6,7 +6,7 @@
 <%  @company.jobs.each do |obj| %>
     <ul style="list-style: none;">
         <br>
-      <li>Title:</li> <%=obj.title %>
+      <li>Title: <a href="/job/<%=obj.id%>"> </li> <%=obj.title %> </a>
       <li>Date:</li> <%=obj.date %>
       <li>Job Type:</li> <%=obj.job_type %>
       <li>Location:</li> <%=obj.location %>
