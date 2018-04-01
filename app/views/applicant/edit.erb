@@ -5,11 +5,11 @@
   <input type="hidden" name="_method" value="patch">
   <p>
   <label for="">Username:</label>
-  <input type="text" name="username" value="<%=@user.username%>">
+  <input type="text" name=applicantion[username] value="<%=@user.username%>">
   </p>
   <p>
   <label for="">password:</label>
-  <input type="password" name="password" value="">
+  <input type="password" name=applicant[password] value="">
   </p>
   <p>
     <label for="password">Password Confirmation</label>
@@ -17,23 +17,23 @@
   </p>
   <p>
   <label for="">Name:</label>
-  <input type="text" name="name" value="<%=@user.name%>">
+  <input type="text" name=applicant[name] value="<%=@user.name%>">
   </p>
   <p>
   <label for="">Address:</label>
-  <input type="address" name="address" value="<%=@user.address%>">
+  <input type="address" name=applicant[address] value="<%=@user.address%>">
   </p>
   <p>
   <label for="">Objective:</label>
-  <input type="box" name="objective" value="<%=@user.objective%>">
+  <input type="box" name=applicant[objective] value="<%=@user.objective%>">
   </p>
   <p>
   <label for="">Github:</label>
-  <input type="text" name="github" value="<%=@user.github%>">
+  <input type="text" name=applicant[github] value="<%=@user.github%>">
   </p>
   <p>
   <label for="">Blog:</label>
-  <input type="text" name="blog" value="<%=@user.blog%>">
+  <input type="text" name=applicant[blog] value="<%=@user.blog%>">
   </p>
   <input type="submit" name="submit" value="submit" class="btn btn-outline-success">
   <input type="reset" class="btn btn-outline-success">

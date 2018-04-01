@@ -91,8 +91,7 @@ class ApplicantController < ApplicationController
 
   post '/applicant/new' do
       if Applicant.create(params[:applicant]).valid?
-        @user = Applicant.create(params[:applicant] )
-        session[:user_id]=@user.id
+        session[:user_id]=Applicant.last.id
         redirect to "/applicant/profile"
       else
         @error = Applicant.create(params[:applicant]).errors.messages
@@ -112,12 +111,15 @@ class ApplicantController < ApplicationController
 
   patch '/applicant/edit' do
    if Applicant_helpers.logged_in?(session)
-     user = Applicant_helpers.current_user(session)
-        user.update(name:params[:name], address:params[:address], objective: params[:objective],github: params[:github],blog:params[:blog])
-     if !params[:password].empty?
-       user.update(password:params[:password])
+     @user = Applicant_helpers.current_user(session)
+      if  @user.update(params[:applicant])
+        
+        flash[:message] = "Your Profile Has Been Updated Successfully !"
+        erb:'/applicant/profile'
+      else
+        @error = @user.errors.messages
+        erb:'/applicant/edit'
      end
-     redirect to '/applicant/profile'
    else
      flash[:message] = "ooh! oh! You are currently not logged in"
      redirect back

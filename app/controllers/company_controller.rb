@@ -65,8 +65,7 @@ class CompanyController < ApplicationController
 
   post '/company/new' do
       if Company.create(params[:company]).valid?
-        @company = Company.create(params[:company])
-        session[:company_id]=@company.id
+        session[:company_id]=Company.last.id
         redirect to "/company/profile"
       else
         @error = Company.create(params[:company]).errors.messages
@@ -86,12 +85,15 @@ class CompanyController < ApplicationController
 
 
   patch '/company/edit' do
-    company = Company_helpers.current_user(session)
-    company.update!(params[:company])
-     if !params[:password].nil?
-       company.update(password:params[:password])
+    @company = Company_helpers.current_user(session)
+     if @company.update(params[:company])
+       flash[:message] = " The Companies' Profile Page has been successfully Updated!"
+       erb:'company/profile'
+     else
+       @error = @company.errors.messages
+       erb:'/company/edit'
      end
-    redirect to '/company/profile'
+
   end
 
 
