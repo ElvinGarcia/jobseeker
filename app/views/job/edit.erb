@@ -4,36 +4,25 @@
   <form class="" action="/job/edit/<%=@job.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
 
-    <p>
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" value="<%=@job.title%>" class="form-control">
-    </p>
 
-    <p>
     <label for="date">Date:</label>
     <input type="text" id="date" name="date" value="<%=@job.date%>" class="form-control">
-    </p>
 
-    <p>
     <label for="job_type">Job Type:</label>
     <input type="text" id="job_type" name="job_type" value="<%=@job.job_type%>" class="form-control">
-    </p>
 
-    <p>
     <label for="location">Location:</label>
     <input type="text" id="location" name="location" value="<%=@job.location%>" class="form-control">
-    </p>
 
-    <p>
     <label for="requirements">Requirements:</label>
     <input type="text" id="requirements" name="requirements" value="<%= @job.requirements%>" class="form-control">
-    </p>
 
-    <p>
     <label for="salary">Salary:</label>
     <input type="text" id="salary" name="salary" value="<%=@job.salary%>" placeholder="Annually" class="form-control">
-    </p>
 
     <input type="submit" name="submit" value="update" class="btn btn-outline-success">
+    <input type="submit" name="submit" value="Cancel" class="btn btn-outline-success" formnovalidate>
 
   </form>

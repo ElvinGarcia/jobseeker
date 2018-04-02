@@ -4,7 +4,7 @@
 <form class="navbar navbar-light bg-light" action="/applicant/edit" method="post">
   <input type="hidden" name="_method" value="patch">
   <p>
-  <label for="">Username:</label>
+  <label for="">* Username:</label>
   <input type="text" name=applicantion[username] value="<%=@user.username%>">
   </p>
   <p>
@@ -16,7 +16,7 @@
     <input type="password" id="password" name=applicant[password_confirmation] value="" placeholder="Password Confirmation">
   </p>
   <p>
-  <label for="">Name:</label>
+  <label for="">* Full Name:</label>
   <input type="text" name=applicant[name] value="<%=@user.name%>">
   </p>
   <p>
@@ -37,4 +37,7 @@
   </p>
   <input type="submit" name="submit" value="submit" class="btn btn-outline-success">
   <input type="reset" class="btn btn-outline-success">
+  <input type="submit" name="submit" value="Cancel" class="btn btn-outline-success" formnovalidate>
 </form>
+
+<p>* require fields</p>

@@ -4,18 +4,18 @@
 <form class=" class="form-control"" action="/company/edit" method="post">
   <input type="hidden" name="_method" value="patch">
 
-  <label for="">Username:</label>
-  <input type="text" name=company[username] value="<%=@company.username%>" class="form-control">
+  <label for="">* Username:</label>
+  <input type="text" name=company[username] value="<%=@company.username%>" placeholder="<%=@company.username%>" class="form-control">
 <br>
-  <label for="">password:</label>
+  <label for="">Password:</label>
   <input type="password" name=company[password] value="" class="form-control">
 <br>
     <label for="password">Password Confirmation:</label>
 <br>
     <input type="password" id="password" name=company[password_confirmation] value="" placeholder="Password Confirmation" class="form-control">
 <br>
-  <label for="">Name:</label>
-  <input type="text" name=company[name] value="<%=@company.name%>" class="form-control">
+  <label for="">* Name:</label>
+  <input type="text" name=company[name] value="<%=@company.name%>" placeholder="<%=@company.name%>" class="form-control">
 <br>
   <label for="">Address:</label>
   <input type="text" name=company[address] value="<%=@company.address%>" class="form-control">
@@ -23,7 +23,10 @@
   <label for="">Description:</label>
   <textarea name=company[description] value="<%=@company.description%>" class="form-control"> <%=@company.description%> </textarea>
   <br>
-  <br>
-  <input type="submit" name="submit" value="update"class="btn btn-outline-success">
-  <input type="reset" class="btn btn-outline-success">
+  <input type="submit" name="submit" value="Update"class="btn btn-outline-success">
+  <input type="reset"  class="btn btn-outline-success">
+  <input type="submit" name="submit" value="Cancel" class="btn btn-outline-success" formnovalidate>
 </form>
+
+<p>* require fields</p>
+<br>
