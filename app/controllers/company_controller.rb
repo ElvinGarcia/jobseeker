@@ -86,7 +86,9 @@ class CompanyController < ApplicationController
 
   patch '/company/edit' do
     @company = Company_helpers.current_user(session)
-     if @company.update(params[:company])
+    if params[:submit] == "Cancel"
+      erb:'company/profile'
+    elsif @company.update(params[:company])
        flash[:message] = " The Companies' Profile Page has been successfully Updated!"
        erb:'company/profile'
      else

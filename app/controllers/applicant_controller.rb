@@ -112,8 +112,10 @@ class ApplicantController < ApplicationController
   patch '/applicant/edit' do
    if Applicant_helpers.logged_in?(session)
      @user = Applicant_helpers.current_user(session)
-      if  @user.update(params[:applicant])
-        
+
+     if params[:submit] == "Cancel"
+       erb:'/applicant/profile'
+     elsif  @user.update(params[:applicant])
         flash[:message] = "Your Profile Has Been Updated Successfully !"
         erb:'/applicant/profile'
       else

@@ -4,25 +4,29 @@
   <form class="" action="/job/edit/<%=@job.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
 
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="<%=@job.title%>" class="form-control">
+    <label for="title">* Title:</label>
+    <input type="text" id="title" name=job[title] value="<%=@job.title%>" placeholder="<%=@job.title%>" class="form-control">
 
     <label for="date">Date:</label>
-    <input type="text" id="date" name="date" value="<%=@job.date%>" class="form-control">
+    <input type="text" id="date" name=job[date] value="<%=@job.date%>" class="form-control">
 
-    <label for="job_type">Job Type:</label>
-    <input type="text" id="job_type" name="job_type" value="<%=@job.job_type%>" class="form-control">
+    <label for="job_type">* Job Type:</label>
+    <input type="text" id="job_type" name=job[job_type] value="<%=@job.job_type%>" placeholder="<%=@job.job_type%>" class="form-control">
 
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" value="<%=@job.location%>" class="form-control">
+    <label for="location">* Location:</label>
+    <input type="text" id="location" name=job[location] value="<%=@job.location%>" placeholder="<%=@job.location%>" class="form-control">
 
-    <label for="requirements">Requirements:</label>
-    <input type="text" id="requirements" name="requirements" value="<%= @job.requirements%>" class="form-control">
+    <label for="requirements">* Requirements:</label>
+    <input type="text" id="requirements" name=job[requirements] value="<%= @job.requirements%>" placeholder="<%= @job.requirements%>" class="form-control">
 
     <label for="salary">Salary:</label>
-    <input type="text" id="salary" name="salary" value="<%=@job.salary%>" placeholder="Annually" class="form-control">
+    <input type="text" id="salary" name=job[salary] value="<%=@job.salary%>" placeholder="Annually" class="form-control">
 
     <input type="submit" name="submit" value="update" class="btn btn-outline-success">
     <input type="submit" name="submit" value="Cancel" class="btn btn-outline-success" formnovalidate>
 
   </form>
+
+  <p>
+    * require fields
+  </p>

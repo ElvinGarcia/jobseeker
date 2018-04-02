@@ -31,6 +31,7 @@ class JobController < ApplicationController
       if Company_helpers.logged_in?(session)
         @company = Company_helpers.current_user(session)
           if @company.jobs.build(params[:job]).valid?
+            @company.jobs.build(params[:job]).save
               redirect to '/company/postings'
             else
               @error = @company.jobs.build(params[:job]).errors.messages
@@ -39,15 +40,21 @@ class JobController < ApplicationController
         else
          flash[:message] = "You must be signed in inorder to create a job post !!"
          redirect back
-         
+
       end
   end
 
   patch '/job/edit/:id' do
     @job = Job.find(params[:id])
     if  Company_helpers.current_user(session).id == @job.company.id
-        @job.update(title:params[:title], date:params[:date], job_type: params[:job_type], location: params[:location], requirements:params[:requirements], salary: params[:salary])
-        redirect to '/company/postings'
+        if params[:submit] == "Cancel"
+          redirect to '/company/postings'
+        elsif @job.update(params[:job])
+          redirect to '/company/postings'
+        else
+          @error = @job.errors.messages
+          erb:'/job/edit'
+        end
       else
         flash[:message] = "You must be signed in inorder to edit this post !!"
         redirect to '/company/login'
