@@ -9,7 +9,7 @@ class Job < ActiveRecord::Base
   belongs_to :company
 
   has_many   :ApplicantsJobs
-  has_many   :applicants, through: :ApplicantsJobs
+  has_many   :applicants, through: :ApplicantsJobs, dependent: :destroy
 
 
    include Slugifiable::Slug

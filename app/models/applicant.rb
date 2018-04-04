@@ -6,7 +6,7 @@ class Applicant < ActiveRecord::Base
   has_secure_password
 
   has_many :ApplicantsJobs
-  has_many :jobs, through: :ApplicantsJobs
+  has_many :jobs, through: :ApplicantsJobs, dependent: :destroy
 
 
 
