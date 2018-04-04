@@ -6,8 +6,8 @@ class Company < ActiveRecord::Base
   validates :password, presence: true, Confirmation: true, length:{in: 6..20}, :if => :password
 
    has_many :ApplicantsJobs
-   has_many :CompaniesApplicants #ApplicantsCompanies
-   has_many :applicants, through: :CompaniesApplicants #ApplicantsCompanies
+   # has_many :CompaniesApplicants #ApplicantsCompanies
+   # has_many :applicants, through: :CompaniesApplicants #ApplicantsCompanies
    has_many :jobs, dependent: :destroy
 
 
