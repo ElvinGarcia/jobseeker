@@ -6,9 +6,6 @@ class Applicant < ActiveRecord::Base
   has_secure_password
 
   has_many :ApplicantsJobs
-  # has_many :CompaniesApplicants #ApplicantsCompanies
-
-  # has_many :companies, through: :CompaniesApplicants #ApplicantsCompanies
   has_many :jobs, through: :ApplicantsJobs
 
 
