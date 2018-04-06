@@ -16,14 +16,4 @@ Job.delete_all
 
 @spacex.jobs.build(title:"spaceman", date:"17/03/2018",job_type:"fulltime",location:"Hawthorn CA", requirements:"none", salary:1000).save
 
-# @solar = Company.create(username:"solar",name:"Solar inc", description:"because it makes sense", address:"444 De Haro Street San Francisco, CA 94107", password:"000000")
-
-# @solar.jobs.build(title:"truck driver", date:"17/03/2018",job_type:"fulltime",location:"USA", requirements:"none", salary:1000).save
-
 @abby = Applicant.create(username:"abby", name:"Abby Cadabby", password:"000000")
-# @elmo = Applicant.create(username:"elmo", name:"Elmo Red Monster", password:"123456")
-
-# @elmo.jobs << @spacex.jobs.first
-# @abby.jobs << @spacex.jobs.first
-# @abby.jobs << @solar.jobs.first
-# @elmo.jobs << @solar.jobs.first
