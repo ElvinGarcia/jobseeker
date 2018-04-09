@@ -1,8 +1,7 @@
 class Job_helpers
 
     def self.current_user(session)
-        @user = Job.find(session[:job_id])
-        @user
+        @user ||= Job.find(session[:job_id])
     end
 
     def self.logged_in?(session)
@@ -10,8 +9,7 @@ class Job_helpers
     end
 
     def self.find_and_auth(params)
-        @user = Job.find_by(username: params[:username]).try(:authenticate, params[:password])
-       @user
+        @user ||= Job.find_by(username: params[:username]).try(:authenticate, params[:password])
      end
 
     def self.empty?(params)

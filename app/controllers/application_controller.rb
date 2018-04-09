@@ -17,4 +17,8 @@ class ApplicationController < Sinatra::Base
 
   end
 
+  get '/test' do
+    current_user
+    current_user
+  end
 end

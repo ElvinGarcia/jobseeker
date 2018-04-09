@@ -1,8 +1,7 @@
 class Company_helpers
 
     def self.current_user(session)
-        @user = Company.find(session[:company_id])
-        @user
+        @user ||= Company.find(session[:company_id])
     end
 
     def self.logged_in?(session)
@@ -10,8 +9,7 @@ class Company_helpers
     end
 
     def self.find_and_auth(params)
-        @user = Company.find_by(username: params[:username]).try(:authenticate, params[:password])
-       @user
+        @user ||= Company.find_by(username: params[:username]).try(:authenticate, params[:password])
      end
 
     def self.empty?(params)

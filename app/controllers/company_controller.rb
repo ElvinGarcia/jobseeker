@@ -4,7 +4,6 @@ class CompanyController < ApplicationController
 
   get '/company/login' do
     if Company_helpers.logged_in?(session)
-      @company = Company_helpers.current_user(session)
       redirect to '/company/profile'
     end
     erb:"/company/index"
