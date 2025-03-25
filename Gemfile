@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
   #use sinatra for routing
-  gem 'sinatra'
+  gem 'sinatra', '>= 4.1.0' # Upgrade Sinatra to a version higher than 4.1.025184
   #use activerecord to bind database to ruby's classes
   gem 'activerecord', :require => 'active_record'
   #extends sinatra with ActiveRecord helpers
@@ -9,7 +9,7 @@ source 'https://rubygems.org'
   #database of choice
   gem 'sqlite3'
   #middleware
-  gem 'rack'
+  gem 'rack', '>= 2.2.11' # Upgrade Rack to a version higher than 2.2.11610
   #loads all code in a file
   gem 'require_all'
   #a wrapper that provides hashing algorithm for handling passwords
@@ -17,7 +17,7 @@ source 'https://rubygems.org'
   gem 'bcrypt'
   #flash alert
   gem 'rack-flash3'
-  
+
 
 group :development do
   #interact with helpers, view rendering and your app's response objects, commands to view your app's routes and settings
@@ -29,7 +29,7 @@ group :development do
   #rack development server
   gem 'shotgun'
   #web server
-  gem 'thin'
+  gem 'puma', '>= 6.2.1' # Ensure puma is updated to address CVE-2025-27111
 end
 
 
